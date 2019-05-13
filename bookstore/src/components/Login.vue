@@ -52,17 +52,21 @@ export default {
     signin() {
       this.$refs.loginForm.validate(valid => {
         if (valid) {
-          if (this.ruleForm.name === "user" && this.ruleForm.pass === "111") {
-            this.$store.dispatch("login",this.ruleForm).then(() => {
-              this.$notification.success({
-                message: "成功登录!",
-                description: "欢迎你, " + this.ruleForm.name + "!"
-              });
-              this.$router.replace("/");
-            });
-          } else {
-            this.$message.error("用户名或密码错误");
-          }
+          this.$ajax.post('/users/validate',this.ruleForm).then((res)=>{
+            if(res.data){
+              this.$store.dispatch('login',res.data).then(()=>{
+                this.$notification.success({
+                  message:'成功登录',
+                  description:'欢迎你, ' + res.data.name +'!'
+                })
+                 this.$router.replace("/");
+              })
+            }else{
+              this.$message.error("用户名或密码错误");
+            }
+          }).catch((err)=>{
+             this.$message.error("网络错误,请重试");
+          })
         } else {
           return false;
         }
