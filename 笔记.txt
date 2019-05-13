@@ -1,0 +1,6 @@
+tigger:触发器;
+$message:全局消息
+ref 有三种用法：
+    1、ref 加在普通的元素上，用this.ref.name 获取到的是dom元素
+    2、ref 加在子组件上，用this.ref.name 获取到的是组件实例，可以使用组件的所有方法。
+    3、如何利用 v-for 和 ref 获取一组数组或者dom 节点
