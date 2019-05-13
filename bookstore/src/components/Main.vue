@@ -1,6 +1,10 @@
 <template>
     <div>
-        欢迎!<button @click= "login">点击登录</button>
+        <span v-if= "user">
+            {{user.name}}
+            <v-button type="warning" @click= "loginout">注销</v-button>
+        </span>
+        <v-button v-else type="success" @click= "login">登录</v-button>
     </div>
 </template>
 
@@ -8,7 +12,17 @@
 export default {
     methods:{
         login(){ 
-          this.$router.replace('/login') 
+            this.$router.replace('/login') 
+        },
+        loginout(){
+            this.$store.dispatch('loginout').then(()=>{
+                this.$router.replace('/login') 
+            })
+        }
+    },
+    computed:{
+        user(){
+            return this.$store.state.user
         }
     }
 }

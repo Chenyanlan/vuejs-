@@ -5,13 +5,14 @@ import App from './App'
 import router from './router'
 import 'vue-beauty/package/style/vue-beauty.min.css'
 import vueBeauty from 'vue-beauty'
-
+import store from './vuex'
 Vue.config.productionTip = false
 Vue.use(vueBeauty)
 /* eslint-disable no-new */
 new Vue({
   el: '#app',
   router,
+  store,
   components: { App },
   template: '<App/>'
 })

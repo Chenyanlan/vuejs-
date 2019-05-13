@@ -6,7 +6,7 @@
       <v-content class="content">
         <router-view/>
       </v-content>
-      <v-footer class="footer">Footer</v-footer>
+      <v-footer class="footer">联系我们</v-footer>
     </v-layout>
 </template>
 
@@ -21,11 +21,15 @@ export default {
   background-color:skyblue;
 }
 .footer{
+  position: absolute;
+  left: 0px;
+  bottom: 0px;
+  width: 100%;
   background-color:skyblue;
 }
 .content{
   background-color:white;
-  height: 500px;
+  height: auto;
 }
 h1{
   color: white;
