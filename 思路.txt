@@ -17,6 +17,12 @@
         i. npm i axios
         ii. 引入 axios 
         iii. 解决跨域问题
+
+2. 建立表格
+    
+2. 对主界面进行美化,数据加入
+    对Main.vue中的布局进行修改,将头部,aside和main和footer进行区分.
+    
     
 
         

@@ -17,7 +17,7 @@ app.all('*', function(req, res, next) {
 // 以下是之前的路由配置代码
 
 app.use('/users',router)
-
+app.use('/todos',require('./router/router'))
 //连接数据库
 mogoose.connect(url,{useNewUrlParser:true},(err)=>{
     if(err){

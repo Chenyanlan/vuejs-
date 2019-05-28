@@ -7,8 +7,11 @@ import 'vue-beauty/package/style/vue-beauty.min.css'
 import vueBeauty from 'vue-beauty'
 import store from './vuex'
 import './axios'
+import Element from 'element-ui'
+import 'element-ui/lib/theme-chalk/index.css'
 Vue.config.productionTip = false
 Vue.use(vueBeauty)
+Vue.use(Element)
 /* eslint-disable no-new */
 new Vue({
   el: '#app',
