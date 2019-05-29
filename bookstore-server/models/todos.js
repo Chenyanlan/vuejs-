@@ -5,5 +5,6 @@ module.exports = mongoose.model('Todos',new mongoose.Schema({
     author:Array,
     content:String,
     status:Number,
-    completeDate:Date
+    completeDate:Date,
+    note:String
 }))
