@@ -27,6 +27,13 @@ router.route('/:id').put((req,res)=>{
         }
         res.json(todo)
     })
+}).delete((req,res)=>{
+    Todo.findByIdAndDelete(req.params.id,(err,todo)=>{
+        if(err){
+            console.log(err)
+        }
+        res.json(todo)
+    })
 })
 
 module.exports = router;

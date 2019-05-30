@@ -8,3 +8,13 @@ express 是基于node.js 平台开发的web开发框架
 Schema:在数据库中的意思是数据库的组织和结构
 Mongoose.Model('User', userSchema);
     参数一为Model的名字，参数二为生成Model所需要的schema,Model就像是schema所编译而成的一样。
+
+更新状态时,修改笔记时,删除时 都是先确定响应的数据是否存在,如果存在,则确定该数据的index,然后使用splice,直接删除,或者用新数据替换旧数据,关于路由.则使用put替换请求
+
+添加书籍时,确定响应的数据是否存在,如果存在,则直接push,关于路由,则是使用post发送请求
+
+从数据库中获取数据时,使用的是get请求
+
+
+
+

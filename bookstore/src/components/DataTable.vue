@@ -77,7 +77,7 @@
                     @click="updateStatusAjax(scope.row,3)" 
                     size="small" type="success"  icon="el-icon-check"></el-button>
                     <el-button type="warning" size="small" icon="el-icon-edit" @click="editTodo(scope.row)"></el-button>
-                    <el-button type="danger" size="small" icon="el-icon-delete"></el-button>
+                    <el-button type="danger" size="small" icon="el-icon-delete" @click="removeTodoAjax(scope.row)"></el-button>
                     <el-button type="info" size="small" icon="el-icon-star-off" @click="editNote(scope.row)"></el-button>
                 </template>
             </el-table-column>
@@ -225,6 +225,7 @@ export default {
         },
         addAjax(){
             this.$ajax.post('todos',this.currentTodo).then((res)=>{
+                console.log(res.data)
                 if(res.data) this.loadData.push(res.data)
                 this.closeEditDialog1()
             }).catch((err)=>this.$notify({
@@ -276,6 +277,19 @@ export default {
                     var index = this.loadData.findIndex(item=>item._id==res.data._id)
                     this.loadData.splice(index,1,res.data)
                 }
+            }).catch((err)=>this.$notify({
+                type:'error',
+                message:err
+            }))
+        },
+        removeTodoAjax(row){
+            this.$confirm('确定要删除?').then(()=>{
+                this.$ajax.delete('todos/'+ row._id).then((res)=>{
+                    if(res.data){
+                        var index = this.loadData.findIndex(item=>item._id==res.data._id)
+                        this.loadData.splice(index,1)
+                    }
+                })
             }).catch((err)=>this.$notify({
                 type:'error',
                 message:err
