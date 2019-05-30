@@ -44,6 +44,9 @@
                     <el-card header="内容简介">
                         {{scope.row.content}}
                     </el-card>
+                    <el-card header="学习笔记">
+                        {{scope.row.note}}
+                    </el-card>
                 </template>
             </el-table-column>
             <el-table-column label="学习书籍" prop="name" sortable="custom">
@@ -66,9 +69,16 @@
             </el-table-column>
             <el-table-column label="操作">
                 <template slot-scope="scope">
-                    <el-button type="warning" size="small" icon="el-icon-edit"></el-button>
+                    <!-- 启动 -->
+                    <el-button v-if="scope.row.status ==0||scope.row.status==2" @click="updateStatusAjax(scope.row,1)" size="small" type="primary" icon="el-icon-arrow-right">
+                    </el-button>
+                    <el-button v-if="scope.row.status == 1" @click="updateStatusAjax(scope.row,2)" size="small" type="info" icon="el-icon-loading"></el-button>
+                    <el-button v-if="scope.row.status ==1" 
+                    @click="updateStatusAjax(scope.row,3)" 
+                    size="small" type="success"  icon="el-icon-check"></el-button>
+                    <el-button type="warning" size="small" icon="el-icon-edit" @click="editTodo(scope.row)"></el-button>
                     <el-button type="danger" size="small" icon="el-icon-delete"></el-button>
-                    <el-button type="info" size="small" icon="el-icon-star-off" @click="addNote"></el-button>
+                    <el-button type="info" size="small" icon="el-icon-star-off" @click="editNote(scope.row)"></el-button>
                 </template>
             </el-table-column>
         </el-table>
@@ -194,7 +204,9 @@ export default {
             this.$refs.todoEditForm.resetFields()
             this.editShow1=false
         },
-        addNote(){
+        editNote(row){
+            this.currentTodo = JSON.parse(JSON.stringify(row))
+            this.currentNote = this.currentTodo.note
             this.editShow2 = true
         },
         saveNote(){
@@ -202,6 +214,7 @@ export default {
                 if(valid){
                     this.currentTodo.note = this.currentNote
                     alert(JSON.stringify(this.currentTodo))
+                    this.editAjax2()
                 }
             })
             this.closeEditDialog2()
@@ -221,7 +234,28 @@ export default {
             
         },
         editAjax(){
-            this.closeEditDialog1()
+            this.$ajax.put('todos/'+this.currentTodo._id,this.currentTodo).then((res)=>{
+                if(res.data){
+                    var index = this.loadData.findIndex(item=>item._id==res.data._id)
+                    this.loadData.splice(index,1,res.data)
+                }
+                 this.closeEditDialog1()
+            }).catch((err)=>this.$notify({
+                type:'error',
+                message:err
+            }))
+        },
+        editAjax2(){//编辑笔记的更新请求
+            this.$ajax.put('todos/'+this.currentTodo._id,this.currentTodo).then((res)=>{
+                if(res.data){
+                    var index = this.loadData.findIndex(item=>item._id==res.data._id)
+                    this.loadData.splice(index,1,res.data)
+                }
+                 this.closeEditDialog2()
+            }).catch((err)=>this.$notify({
+                type:'error',
+                message:err
+            }))
         },
         addAuthor(){
             this.currentAuthors.push(this.currentAuthor)
@@ -229,6 +263,23 @@ export default {
         },
         removeAuthor(tag){//删除作者
             this.currentAuthors.splice(this.currentAuthor.indexOf(tag),1)
+        },
+        editTodo(row){
+            this.currentTodo = JSON.parse(JSON.stringify(row))
+            this.currentAuthors = this.currentTodo.author
+            this.editShow1 = true
+        },
+        updateStatusAjax(row,status){
+            var todo = {_id:row._id,status}
+            this.$ajax.put('todos/'+todo._id,todo).then((res)=>{
+                if(res.data){
+                    var index = this.loadData.findIndex(item=>item._id==res.data._id)
+                    this.loadData.splice(index,1,res.data)
+                }
+            }).catch((err)=>this.$notify({
+                type:'error',
+                message:err
+            }))
         }
     },
     computed:{
