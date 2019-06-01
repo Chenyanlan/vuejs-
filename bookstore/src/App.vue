@@ -1,9 +1,15 @@
 <template>
     <el-container>
       <el-header class="header" height="100px">
-        <h1>主界面</h1>
+        <el-row type="flex" class="row-bg" justify="space-around">
+        <el-col :span="6">
+        <h1 @click="home">主界面</h1></el-col>
+        <el-col :span="6">
+        <el-button type="primary" plain @click="main">学习进度管理</el-button></el-col>
+        </el-row>
       </el-header>
       <el-main>
+        <el-divider></el-divider>
         <router-view/>
       </el-main>
     </el-container>
@@ -21,30 +27,22 @@
 <script>
 // import DataTable from './components/DataTable'
 export default {
-  name: "App"
-  // components:{
-  //   DataTable
-  // }
+  name: "App",
+  methods:{
+    home(){
+      this.$router.replace('/home')
+    },
+    main(){
+      this.$router.replace('/')
+    }
+  }
 };
 </script>
 
 <style>
-.header{
+/* .header{
   background-color:skyblue;
-  color: white;
-}
-/* .footer{
-  position: absolute;
-  left: 0px;
-  bottom: 0px;
-  width: 100%;
-  background-color:skyblue;
-}
-.content{
-  background-color:white;
-  height: auto;
-}
-h1{
   color: white;
 } */
+
 </style>

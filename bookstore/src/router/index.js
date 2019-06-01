@@ -4,6 +4,8 @@ import Main from '@/components/Main'
 import Login from '@/components/Login'
 import ViewPage from '@/components/ViewPage'
 import DataTable from '@/components/DataTable'
+import Home from '@/components/Home'
+import Detail from '@/components/Detail'
 Vue.use(Router)
 
 export default new Router({
@@ -19,14 +21,19 @@ export default new Router({
       component:Login
     },
     {
-      path:'/viewpage',
-      name:'ViewPage',
-      component:ViewPage
+      path:'/detail',
+      name:'Detail',
+      component:Detail
     },
     {
       path:'/datatable',
       name:'DataTable',
       component:DataTable
+    },
+    {
+      path:'/home',
+      name:'Home',
+      component:Home
     }
   ]
 })
