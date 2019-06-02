@@ -7,7 +7,104 @@
         @open="handleOpen"
         @close="handleClose"
       >
-        <el-submenu index="1">
+      <el-submenu index="2">
+          <template slot="title">
+            <i class="el-icon-eleme"></i>
+            <span slot="title">网络文学</span>
+          </template>
+          <el-menu-item index="2-1">男频</el-menu-item>
+          <el-menu-item index="2-2">女频</el-menu-item>
+          <el-menu-item index="2-3">玄幻奇幻</el-menu-item>
+          <el-menu-item index="2-4">现代都市</el-menu-item>
+        </el-submenu>
+        <el-submenu index="3">
+          <template slot="title">
+            <i class="el-icon-document"></i>
+            <span slot="title">教育</span>
+          </template>
+          <el-menu-item-group>
+            <span slot="title">教材</span>
+            <el-menu-item index="3-1">研究生/本科/专科</el-menu-item>
+            <el-menu-item index="3-2">公共课</el-menu-item>
+          </el-menu-item-group>
+          <el-menu-item-group title="外语">
+            <el-menu-item index="3-3">英语综合课程</el-menu-item>
+            <el-menu-item index="3-4">日语专项训练</el-menu-item>
+          </el-menu-item-group>
+          <el-menu-item-group title="考试">
+            <el-menu-item index="3-5">学历考试</el-menu-item>
+            <el-menu-item index="3-6">公务员</el-menu-item>
+          </el-menu-item-group>
+        </el-submenu>
+        <el-submenu index="4">
+          <template slot="title">
+            <i class="el-icon-reading"></i>
+            <span slot="title">小说</span>
+          </template>
+          <el-menu-item index="4-1">中国当代小说</el-menu-item>
+          <el-menu-item index="4-2">中国近现代小说</el-menu-item>
+          <el-menu-item index="4-3">中国古典小说</el-menu-item>
+          <el-menu-item index="4-4">侦探/悬疑/推理</el-menu-item>
+        </el-submenu>
+
+        <el-submenu index="5">
+          <template slot="title">
+            <i class="el-icon-medal"></i>
+            <span slot="title">文艺</span>
+          </template>
+          <el-menu-item-group>
+            <span slot="title">文学</span>
+            <el-menu-item index="5-1">纪实文学</el-menu-item>
+            <el-menu-item index="5-2">文学理论</el-menu-item>
+          </el-menu-item-group>
+          <el-menu-item-group title="传记">
+            <el-menu-item index="5-3">历代帝王</el-menu-item>
+            <el-menu-item index="5-4">领袖首脑</el-menu-item>
+          </el-menu-item-group>
+          <el-menu-item-group title="艺术">
+            <el-menu-item index="5-5">艺术理论</el-menu-item>
+            <el-menu-item index="5-6">绘画/音乐</el-menu-item>
+          </el-menu-item-group>
+        </el-submenu>
+        <el-submenu index="6">
+          <template slot="title">
+            <i class="el-icon-truck"></i>
+            <span slot="title">生活</span>
+          </template>
+          <el-menu-item-group>
+            <span slot="title">亲子家教</span>
+            <el-menu-item index="6-1">家教方法</el-menu-item>
+            <el-menu-item index="6-2">成功案例</el-menu-item>
+          </el-menu-item-group>
+          <el-menu-item-group title="育儿早教">
+            <el-menu-item index="6-3">育儿百科</el-menu-item>
+            <el-menu-item index="6-4">亲子互动</el-menu-item>
+          </el-menu-item-group>
+          <el-menu-item-group title="保健养生">
+            <el-menu-item index="6-5">中医养生</el-menu-item>
+            <el-menu-item index="6-6">饮食健康</el-menu-item>
+          </el-menu-item-group>
+        </el-submenu>
+        <el-submenu index="7">
+          <template slot="title">
+            <i class="el-icon-mobile-phone"></i>
+            <span slot="title">科技</span>
+          </template>
+          <el-menu-item-group>
+            <span slot="title">科普读物</span>
+            <el-menu-item index="7-1">宇宙知识</el-menu-item>
+            <el-menu-item index="7-2">生物世界</el-menu-item>
+          </el-menu-item-group>
+          <el-menu-item-group title="计算机/网络">
+            <el-menu-item index="7-3">计算机理论</el-menu-item>
+            <el-menu-item index="7-4">程序设计</el-menu-item>
+          </el-menu-item-group>
+          <el-menu-item-group title="医学">
+            <el-menu-item index="7-5">临床医学理论</el-menu-item>
+            <el-menu-item index="7-6">预防医学</el-menu-item>
+          </el-menu-item-group>
+        </el-submenu>
+        <!-- <el-submenu index="1">
           <template slot="title">
             <i class="el-icon-location"></i>
             <span>科技</span>
@@ -30,7 +127,7 @@
             <span>教育</span>
           </template>
           <el-menu-item-group>
-            <!-- <template slot="title">计算机/网络</template> -->
+            
             <el-menu-item index="2-1">外语</el-menu-item>
             <el-menu-item index="2-2">考试</el-menu-item>
             <el-menu-item index="2-3">中小学教辅</el-menu-item>
@@ -43,7 +140,7 @@
             <span>生活</span>
           </template>
           <el-menu-item-group>
-            <!-- <template slot="title">计算机/网络</template> -->
+            
             <el-menu-item index="3-1">亲子/家教</el-menu-item>
             <el-menu-item index="3-2">保健/养生</el-menu-item>
             <el-menu-item index="3-3">体育/运动</el-menu-item>
@@ -56,13 +153,13 @@
             <span>文艺</span>
           </template>
           <el-menu-item-group>
-            <!-- <template slot="title">计算机/网络</template> -->
+      
             <el-menu-item index="4-1">小说</el-menu-item>
             <el-menu-item index="4-2">青春文学</el-menu-item>
             <el-menu-item index="4-3">艺术</el-menu-item>
             <el-menu-item index="4-4">传记</el-menu-item>
           </el-menu-item-group>
-        </el-submenu>
+        </el-submenu> -->
       </el-menu>
     </el-aside>
     <el-main>

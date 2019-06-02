@@ -2,10 +2,11 @@ import Vue from 'vue'
 import Router from 'vue-router'
 import Main from '@/components/Main'
 import Login from '@/components/Login'
-import ViewPage from '@/components/ViewPage'
-import DataTable from '@/components/DataTable'
+import Shouye from '@/components/Shouye'
 import Home from '@/components/Home'
 import Detail from '@/components/Detail'
+import Register from '@/components/Register'
+import Userhome from '@/components/Userhome'
 Vue.use(Router)
 
 export default new Router({
@@ -26,14 +27,24 @@ export default new Router({
       component:Detail
     },
     {
-      path:'/datatable',
-      name:'DataTable',
-      component:DataTable
+      path:'/register',
+      name:'Register',
+      component:Register
     },
     {
       path:'/home',
       name:'Home',
       component:Home
+    },
+    {
+      path:'/shouye',
+      name:'Shouye',
+      component:Shouye
+    },
+    {
+      path:'/userhome',
+      name:'Userhome',
+      component:Userhome
     }
   ]
 })

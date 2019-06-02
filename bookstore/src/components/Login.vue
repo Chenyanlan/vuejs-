@@ -12,7 +12,10 @@
     </v-form-item>
     <v-form-item>
       <v-button type="primary" @click= "signin" size="large" icon="smile-o">
-        <span>确定</span>
+        <span>登录</span>
+      </v-button>
+      <v-button type="primary" @click= "register" size="large" icon="smile-o">
+        <span>注册</span>
       </v-button>
     </v-form-item>
   </v-form>
@@ -71,6 +74,9 @@ export default {
           return false;
         }
       });
+    },
+    register(){
+      this.$router.replace("/register");
     }
   }
 };

@@ -19,7 +19,7 @@ export default [
     },
     {
         id:4,
-        name:'Web前端 HTML与CSS进阶教程',
+        name:'Web前端 HTML与CSS进阶',
         image:'http://img62.ddimg.cn/digital/product/25/68/1900722568_ii_cover.jpg?version=b18b098f-f82b-4fea-bd2d-0c4c9af71137',
         intro:'本书内容结合笔者在前后端大量发中的实战经验，系统化知识，浓缩精华，用通俗易懂的语言直学习者的痛。'
     }

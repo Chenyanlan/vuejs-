@@ -21,4 +21,23 @@ router.route('/validate').post((req,res)=>{
    
 })
 
+router.route('/register').post((req,res)=>{
+    console.log(req.body) 
+    myname = req.body.name
+    mypass = req.body.pass
+    mynick = ''
+    var user2 = {
+      name:myname,
+      pass:mypass,
+      nickName:mynick
+    }
+    console.log(user2)
+    User.create(user2,(err,user2)=>{
+      if(err){
+        console.log(err)
+      }
+      res.json(user2)
+    })
+  })
+
 module.exports = router
