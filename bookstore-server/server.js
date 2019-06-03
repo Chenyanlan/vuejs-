@@ -31,6 +31,10 @@ mogoose.connect(url,{useNewUrlParser:true},(err)=>{
 //     res.send(users)
 // })
 
+app.get('/download',function(req,res){
+    res.download('book.pdf')
+})
+
 app.listen(3000,()=>{
     console.log('app is listening on port:3000')
 })

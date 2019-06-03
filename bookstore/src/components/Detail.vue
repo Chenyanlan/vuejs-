@@ -56,7 +56,7 @@
       <br>
       <br>
       <div>
-      <el-button type="primary" round>下载</el-button>
+      <el-button type="primary" round @click="download">下载</el-button>
       </div>
     </div>
     <div id="aside-right">
@@ -150,6 +150,11 @@ export default {
     localComments() {
       var list = JSON.parse(localStorage.getItem("cmts"));
       this.commentlist = list;
+    },
+    download(){
+      this.$ajax.get('/download').then(function(res){
+        window.open('http://localhost:3000/download')
+      })
     }
   }
 };
@@ -219,7 +224,7 @@ div#cishu{
 }
 div#price{
   float: left;
-  height: 40px;
+  height: 60px;
 }
 div#rate{
   float: right;
