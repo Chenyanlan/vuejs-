@@ -1,6 +1,6 @@
 <template>
   <el-container>
-    <el-header class="header" height="122px">
+    <el-header class="header" height="132px">
       <div id="logo">
         图书资源
         <div id="search">
@@ -84,15 +84,7 @@
       <span>帮助中心</span>
     </el-footer>
   </el-container>
-  <!-- <v-layout>
-      <v-header class="header" height="100px">
-       <h1>主界面</h1>
-      </v-header>
-      <v-content class="content">
-        <router-view></router-view>
-      </v-content>
-      <v-footer class="footer">联系我们</v-footer>
-  </v-layout>-->
+  
 </template>
 
 <script>

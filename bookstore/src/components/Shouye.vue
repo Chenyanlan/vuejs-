@@ -365,11 +365,6 @@
         </el-row>
       </div>
     </el-main>
-    <v-affix :offset-bottom="120" @change="onChange">
-      <button type="button" class="ant-btn">
-        <span>调研</span>
-      </button>
-    </v-affix>
   </el-container>
 </template>
 

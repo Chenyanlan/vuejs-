@@ -19,22 +19,7 @@
       </v-button>
     </v-form-item>
   </v-form>
-  <!-- <v-form class="login-form">
-    <v-form-item>
-      <v-input placeholder="用户名" size = "large">
-        <v-icon type="user" slot="before"></v-icon>
-      </v-input>
-    </v-form-item>
-    <br/>
-    <v-form-item required>
-      <v-input placeholder="密码" type="password" size = "large">
-        <v-icon type="lock" slot="before"></v-icon>
-      </v-input>
-    </v-form-item>
-    <v-form-item>
-      <v-button type="primary" @click= "signin">登录</v-button>
-    </v-form-item>
-  </v-form>-->
+
 </template>
 
 <script>
