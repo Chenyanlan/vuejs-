@@ -191,11 +191,12 @@ export default {
             this.$refs.todoEditForm.validate((valid)=>{
                 if(valid){
                     this.currentTodo.author = this.currentAuthors
-                    alert(JSON.stringify(this.currentTodo))
+                    //console.log(this.currentTodo)
+                   // alert(JSON.stringify(this.currentTodo))
                     this.currentTodo._id ? this.editAjax() : this.addAjax()
                 }
             })
-            this.closeEditDialog1()
+            //this.closeEditDialog1()
         },
         closeEditDialog1(){//关闭对话框
             this.currentTodo={}
